@@ -1,152 +1,98 @@
-# Phase-2-Group-1-Project-2025
+# 🎬 Movie Industry Data Analysis Project
 
-# 🎬 Movie Data Analysis Project - Group 1
+## 📌 Project Overview
 
-This project explores movie data from **TMDb (The Movie Database)** and **The Numbers**, focusing on analyzing trends in popularity, budgeting, genres, and profitability. The goal is to extract insights from raw datasets by cleaning, transforming, and visualizing the data using Python and various data science tools.
-
----
-
-## 📁 Datasets Used
-
-We worked with the following CSV files: 
-
-1. **`rt.reviews.tsv`**   
-2. **`bom.movie_gross.csv`**  
-3. **`tmdb.movies.csv`**  
-   - Source: [TMDb](https://www.themoviedb.org/)  
-   - Contains metadata about movies, including:
-     - Title
-     - Genre
-     - Popularity
-     - Vote average & vote count
-     - Runtime
-     - Release date
-
-2. **`tn.movie_budgets.csv`**  
-   - Source: [The Numbers](https://www.the-numbers.com/)  
-   - Contains financial data about movies, including:
-     - Production budget
-     - Domestic gross
-     - Worldwide gross
-     - Release date
-
-3. **`project.ipynb`**  
-   - A Jupyter Notebook containing the full workflow for data loading, cleaning, analysis, and visualization.
+This project explores key business questions in the **movie industry** using data analysis and visualization. The goal is to provide **actionable insights** to movie producers, investors, and studios to inform production and marketing decisions.
 
 ---
 
-## 🧱 Project Structure
+## 💼 Business Questions Addressed
 
-
-
----
-
-## 🛠️ Tools and Technologies Used
-
-### 💻 Languages
-- **Python** – Used for data manipulation, cleaning, and visualization.
-- **Jupiter Notebook** – Used for running python on it.
-- **VS code** – Used for running python on it.
-
-### 🧰 Libraries & Frameworks
-- **Pandas** – For data loading, transformation, and analysis.
-- **NumPy** – For numerical operations.
-- **Matplotlib & Seaborn** – For creating visualizations.
-- **Python-dotenv** – For managing environment variables securely.
-
-### 📓 Environment
-- **Jupyter Notebook** – Used to organize code and analysis in an interactive format.
+- **What genres tend to perform best at the box office?**
+- **Do critic ratings predict box office success?**
+- **How do production budgets correlate with box office revenue?**
 
 ---
 
-## 🔧 Setup Instructions
+## 📊 Methodology
 
-1. **Clone the Repository**
-   ```bash
-   git clone <repository-url>
-   cd movie-data-analysis
+The project follows a structured data analysis process using **Python** in a **Jupyter Notebook**. The main steps include:
 
-
-# 📊 Movie Data Analysis – Data Loading, Cleaning & Analysis Summary
-
-This document outlines the full data workflow used in our movie data analysis project, including **data loading**, **cleaning**, **merging**, and **visual analysis** to extract key insights from the datasets.
+- **Data Loading**: Import multiple datasets related to movie metadata, ratings, revenue, and production.
+- **Data Cleaning**: Handle missing values, fix data types, and remove duplicates or irrelevant entries.
+- **Dataset Merging**: Combine datasets into a unified format suitable for analysis.
+- **Exploratory Data Analysis (EDA)**: Examine distributions, trends, and relationships in the data.
+- **Data Visualization**: Use plots and graphs to uncover patterns and support conclusions.
 
 ---
 
-## 📥 Data Loading
+## 🛠️ Tools and Libraries Used
 
-We used the Python `pandas` library to load the datasets into DataFrames for analysis:
-
-```python
-import pandas as pd
-
-tmdb_df = pd.read_csv("data/tmdb.movies.csv")
-budgets_df = pd.read_csv("data/tn.movie_budgets.csv")
-
-# 🎬 Movie Data Analysis Project
-
-This project provides an in-depth analysis of movie data using datasets from **TMDb (The Movie Database)** and **The Numbers**. The process includes loading, cleaning, merging, analyzing, and visualizing movie-related data to uncover trends in genres, financial performance, and popularity.
+| Library      | Purpose                                      |
+|--------------|----------------------------------------------|
+| **Pandas**   | Data manipulation and analysis               |
+| **NumPy**    | Numerical operations                         |
+| **Matplotlib** | Basic plotting (bar, scatter, line)        |
+| **Seaborn**  | Advanced visualization (correlations, trends)|
+| **Jupyter**  | Interactive notebook-based development       |
 
 ---
 
-## 📂 Data Cleaning
+## 📁 Folder Structure
 
-### 🎬 TMDb Movies Dataset
-To prepare the TMDb dataset for analysis, we performed the following steps:
-
-- ✅ Converted `release_date` to `datetime` format.
-- 🧹 Dropped rows with missing values in important columns such as `popularity` and `vote_average`.
-- 📅 Filtered movies to include only those **released after the year 2000**.
-- 🔧 Standardized column names and data types for consistency across the project.
-
----
-
-### 💸 The Numbers Budget Dataset
-To clean and standardize financial data:
-
-- 💵 Removed currency symbols (`$`, `,`) from `production_budget`, `domestic_gross`, and `worldwide_gross`.
-- 🔢 Converted monetary values into **integers** for numerical computation.
-- 📆 Parsed `release_date` into `datetime` format.
-- 🏷️ Renamed columns to ensure consistent naming:
-  - `production_budget`
-  - `domestic_gross`
-  - `worldwide_gross`
+```
+/movie-industry-analysis
+│
+├── Project_notebook.ipynb       # Main notebook with analysis
+├── README.md                    # Project documentation
+└── data/
+├── movies_metadata.csv
+├── ratings.csv
+ └── box_office.csv           # Sample data files (names may vary)
+```
 
 ---
 
-### 🔗 Merging Datasets
-To build a unified dataset, we:
+## 🔍 Key Insights
 
-- 📤 Extracted `release_year` from `release_date` in both datasets.
-- 🔄 Merged both datasets using `movie_title` and `release_year` as keys.
-- 🧠 Applied **basic fuzzy matching techniques** to better align slightly mismatched movie titles across datasets.
-
----
-
-## 📊 Analysis & Visualization
-
-We conducted several analyses to uncover insights using aggregated statistics and visual representations.
+- 🎥 **Top Performing Genres**: Action and Adventure genres tend to generate the highest box office returns.
+- 🌟 **Critic Ratings vs Revenue**: There is a moderate positive correlation—higher ratings can signal better performance but aren't definitive predictors.
+- 💰 **Budget vs Revenue**: Higher production budgets generally lead to higher box office revenue, but with diminishing returns at extreme budget levels.
 
 ---
 
-### 🎭 Genre Popularity
-- 🔢 Counted the number of movies produced in each genre.
-- ⭐ Calculated **average rating** (`vote_average`) per genre.
-- 📈 Explored how genre **popularity trends changed over time**.
+## 📊 Visualization Types
+
+- 📊 **Bar Graphs**: Compare average revenue by genre.
+- 🔵 **Scatter Plots**: Explore the relationship between critic ratings and box office revenue.
+- 📈 **Line Charts**: Show revenue trends over time or across budget ranges.
 
 ---
 
-### 📅 Time-Based Trends
-- 📊 Plotted **yearly movie release trends** to detect peaks and changes in production over time.
-- 📈 Analyzed how **popularity** and **ratings** evolved across years.
+## 🚀 How to Run
+
+### ✅ Prerequisites
+
+Make sure you have Python installed and the following packages:
+
+```bash
+pip install pandas numpy matplotlib seaborn jupyter
+```
+
+### ▶️ Run the Notebook
+
+Open a terminal or command prompt and run:
+
+```bash
+jupyter notebook Project_notebook.ipynb
+```
+
+This will open the notebook in your browser where you can explore the analysis step by step.
 
 ---
 
-### 💰 Budget vs Revenue
-To examine financial performance:
+## 📬 Contact
 
-- ⚫ Created **scatter plots** to visualize the relationship between `production_budget` and `worldwide_gross`.
-- 💡 Computed **Return on Investment (ROI)** using the formula:
+For feedback or collaboration, feel free to reach out via GitHub or email.
 
-  ```python
-  ROI = (worldwide_gross - production_budget) / production_budget_
+---
