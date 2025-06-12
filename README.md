@@ -50,6 +50,8 @@ Our goal is to provide data-driven recommendations on genre focus, budget alloca
 - Seasonal Release Month Analysis
 
 ---
+Tableau Visualisation Link
+https://public.tableau.com/app/profile/mirriam.david/viz/MovieAnalysisTableau/Dashboard1?publish=yes
 
 ## 💡 Key Findings
 
