@@ -1,98 +1,82 @@
-# 🎬 Movie Industry Data Analysis Project
 
-## 📌 Project Overview
+# Phase-2-Group-1-Project-2025
 
-This project explores key business questions in the **movie industry** using data analysis and visualization. The goal is to provide **actionable insights** to movie producers, investors, and studios to inform production and marketing decisions.
+# 🎬 Movie Data Analysis Project - Group 1
 
----
+##  Overview
 
-## 💼 Business Questions Addressed
-
-- **What genres tend to perform best at the box office?**
-- **Do critic ratings predict box office success?**
-- **How do production budgets correlate with box office revenue?**
+This project analyzes historical movie industry data to help guide business decisions for a new movie studio. Using data from multiple sources, we perform exploratory data analysis to answer key business questions about what types of movies succeed at the box office.
 
 ---
 
-## 📊 Methodology
+## Business Problem
 
-The project follows a structured data analysis process using **Python** in a **Jupyter Notebook**. The main steps include:
+The studio seeks to answer the following core questions:
 
-- **Data Loading**: Import multiple datasets related to movie metadata, ratings, revenue, and production.
-- **Data Cleaning**: Handle missing values, fix data types, and remove duplicates or irrelevant entries.
-- **Dataset Merging**: Combine datasets into a unified format suitable for analysis.
-- **Exploratory Data Analysis (EDA)**: Examine distributions, trends, and relationships in the data.
-- **Data Visualization**: Use plots and graphs to uncover patterns and support conclusions.
+1️⃣ What genres tend to perform best at the box office?  
+2️⃣ Do critic ratings predict box office success?  
+3️⃣ How do production budgets correlate with box office revenue?  
+4️⃣ Does release timing (season, month) impact revenue?
 
----
-
-## 🛠️ Tools and Libraries Used
-
-| Library      | Purpose                                      |
-|--------------|----------------------------------------------|
-| **Pandas**   | Data manipulation and analysis               |
-| **NumPy**    | Numerical operations                         |
-| **Matplotlib** | Basic plotting (bar, scatter, line)        |
-| **Seaborn**  | Advanced visualization (correlations, trends)|
-| **Jupyter**  | Interactive notebook-based development       |
+Our goal is to provide data-driven recommendations on genre focus, budget allocation, and release strategy.
 
 ---
 
-## 📁 Folder Structure
+## 📁 Datasets Used
 
-```
-/movie-industry-analysis
-│
-├── Project_notebook.ipynb       # Main notebook with analysis
-├── README.md                    # Project documentation
-└── data/
-├── movies_metadata.csv
-├── ratings.csv
- └── box_office.csv           # Sample data files (names may vary)
-```
+- **IMDB**: Movie titles, genres, and ratings (SQLite database)
+- **Box Office Mojo (BOM)**: Domestic and foreign gross earnings (CSV)
+- **The Numbers**: Production budget and worldwide revenue (CSV)
+- **Rotten Tomatoes**: Reviews and critic information (TSV)
 
 ---
 
-## 🔍 Key Insights
+## 🧹  Data Cleaning & Preparation
 
-- 🎥 **Top Performing Genres**: Action and Adventure genres tend to generate the highest box office returns.
-- 🌟 **Critic Ratings vs Revenue**: There is a moderate positive correlation—higher ratings can signal better performance but aren't definitive predictors.
-- 💰 **Budget vs Revenue**: Higher production budgets generally lead to higher box office revenue, but with diminishing returns at extreme budget levels.
-
----
-
-## 📊 Visualization Types
-
-- 📊 **Bar Graphs**: Compare average revenue by genre.
-- 🔵 **Scatter Plots**: Explore the relationship between critic ratings and box office revenue.
-- 📈 **Line Charts**: Show revenue trends over time or across budget ranges.
+- Cleaned currency columns, removed special characters and converted to float to prevent overflow errors.
+- Converted dates to pandas datetime format.
+- Extracted release year and release month for seasonality analysis.
+- Standardized titles using lowercase and stripped whitespace to ensure safe merging.
+- Filtered out movies with fewer than 50 votes for rating stability.
+- Exploded genre fields to analyze individual genres.
 
 ---
 
-## 🚀 How to Run
+## 📊 Exploratory Data Analysis Performed
 
-### ✅ Prerequisites
-
-Make sure you have Python installed and the following packages:
-
-```bash
-pip install pandas numpy matplotlib seaborn jupyter
-```
-
-### ▶️ Run the Notebook
-
-Open a terminal or command prompt and run:
-
-```bash
-jupyter notebook Project_notebook.ipynb
-```
-
-This will open the notebook in your browser where you can explore the analysis step by step.
+- Genre vs Revenue Analysis
+- Ratings vs Revenue Correlation
+- Budget vs Revenue Relationship
+- Seasonal Release Month Analysis
 
 ---
 
-## 📬 Contact
+## 💡 Key Findings
 
-For feedback or collaboration, feel free to reach out via GitHub or email.
+- **Top Genres**: Adventure, Animation, Fantasy, and Sci-Fi dominate box office revenue globally.
+- **Ratings**: Weak correlation to revenue; high ratings do not guarantee high revenue.
+- **Budgets**: Strong positive correlation between production budget and revenue.
+- **Release Timing**: Summer and holiday releases (May - July, November - December) outperform others.
 
 ---
+
+## ✅ Business Recommendations
+
+- Prioritize production in Adventure, Animation, Fantasy, and Sci-Fi.
+- Plan release schedules around seasonal high-performing months.
+- Use critic ratings as supplemental but not predictive indicators.
+- Manage budgets carefully; large budgets bring higher revenue but higher financial risk.
+
+---
+
+##  Repository Files
+
+- `Project_notebook.ipynb` : Full Jupyter Notebook (analysis and visualizations)
+- `Phase2_Merged_Cleaned_Data.csv` : Fully cleaned merged dataset
+- `Phase2_CleanedData_For_Tableau.xlsx` : Tableau-ready dataset export
+- `Phase2_Presentation_Deck_Final.pptx` : Final Presentation Slides
+- `README.md` : This README summary
+
+---
+
+
